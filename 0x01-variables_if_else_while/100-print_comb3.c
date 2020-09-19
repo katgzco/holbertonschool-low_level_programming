@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Print all the numbers from 0 to 100.
+ * main - Print all possible different combinations of two digits.
  * Return: 0 (always succesfull)
  **/
 int main(void)
@@ -15,14 +15,17 @@ int main(void)
 
 		while (number2 <= '9')
 		{
-			if(number != number2)
+			if (number != number2)
 			{
 				putchar(number);
 				putchar(number2);
-				putchar(',');
-				putchar(' ');
+				if (number < '8' && number2 > '0')
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
-			
+
 			number2++;
 		}
 		number++;
