@@ -14,24 +14,23 @@ int main(void)
 			printf("FizzBuzz");
 			printf(" ");
 		}
-		else if (i % 3 == 0)
+		if (i % 3 == 0)
 		{
 			printf("Fizz");
 			printf(" ");
 		}
-		else if (i % 5 == 0)
-			if (i % 5 == 100)
+		if (i % 5 == 0)
+		{
+			if (i == 100)
 			{
 				printf("Buzz");
 				printf(" ");
 			}
 			else
 				printf("Buzz");
-		else
-		{
-			printf("%d", i);
-			printf(" ");
 		}
+		printf("%d", i);
+		printf(" ");
 	}
 	printf("\n");
 }
