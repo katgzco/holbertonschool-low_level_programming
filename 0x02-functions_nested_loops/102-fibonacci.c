@@ -10,7 +10,8 @@ int main(void)
 
 	primero = 0;
 	segundo = 1;
-	for (i = 0; i < 50; i++)
+	printf("%li, %li, ", primero, segundo);
+	for (i = 1; i <= 48; i++)
 	{
 		resultado = primero + segundo;
 		primero = segundo;
