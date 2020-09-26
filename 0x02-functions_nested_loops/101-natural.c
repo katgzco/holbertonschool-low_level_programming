@@ -8,8 +8,9 @@ int main(void)
 	int i, suma;
 
 	suma = 0;
-	for (i = 3; 3 < 1024; ++i)
+	for (i = 3; 3 < 1024; )
 	{
+		++i;
 		if (i % 3 == 0 || i % 5 == 0)
 			suma = suma + i;
 	}
