@@ -10,7 +10,9 @@ int main(void)
 
 	primero = 0;
 	segundo = 1;
-	for (i = 0; i < 33; i++)
+	resultado = 0;
+	suma = 0;
+	while  (resultado <= 4000000)
 	{
 		resultado = primero + segundo;
 		primero = segundo;
