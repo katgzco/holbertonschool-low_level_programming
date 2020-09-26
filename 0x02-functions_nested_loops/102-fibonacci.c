@@ -22,6 +22,6 @@ int main(void)
 		else
 			printf("%li", resultado);
 	}
-	printf('\n');
+	printf("\n");
 	return (0);
 }
