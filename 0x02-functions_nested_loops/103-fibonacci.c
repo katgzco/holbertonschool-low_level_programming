@@ -1,6 +1,6 @@
 #include<stdio.h>
 /**
- * main -  program that finds and prints the sum of the even-valued terms.
+ * main - prints the first 50 Fibonacci numbers
  * Return: 0 succesfull.
  **/
 int main(void)
@@ -12,15 +12,17 @@ int main(void)
 	segundo = 1;
 	resultado = 0;
 	suma = 0;
-	while  (resultado <= 4000000)
+	while (resultado <= 4000000)
 	{
 		resultado = primero + segundo;
 		primero = segundo;
 		segundo = resultado;
-		if (resultado % 2 == 0)
-			suma = suma + resultado;
+		if (resultado <= 4000000);
+		{
+			if (resultado % 2 == 0)
+				suma = suma + resultado;
+		}
 	}
-	printf("%li", suma);
-	printf("\n");
+	printf("%li\n", suma);
 	return (0);
 }
