@@ -8,18 +8,14 @@ int main(void)
 	int i;
 	long int primero, segundo, resultado;
 
-	primero = 1;
+	primero = 0;
 	segundo = 1;
-	resultado = primero + segundo;
-	printf("%li, ", resultado);
-	primero = segundo;
-	segundo = resultado;
-	for (i = 0; i < 48; i++)
+	for (i = 0; i < 50; i++)
 	{
 		resultado = primero + segundo;
 		primero = segundo;
 		segundo = resultado;
-		if (i < 46)
+		if (i < 48)
 			printf("%li, ", resultado);
 		else
 			printf("%li", resultado);
