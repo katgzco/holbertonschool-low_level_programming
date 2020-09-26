@@ -10,13 +10,12 @@ int main(void)
 
 	primero = 0;
 	segundo = 1;
-	printf("%li, %li, ", primero, segundo);
-	for (i = 1; i <= 48; i++)
+	for (i = 0; i < 50; i++)
 	{
 		resultado = primero + segundo;
 		primero = segundo;
 		segundo = resultado;
-		if (i < 48)
+		if (i < 49)
 			printf("%li, ", resultado);
 		else
 			printf("%li", resultado);
