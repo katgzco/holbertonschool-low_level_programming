@@ -5,7 +5,6 @@
  **/
 int main(void)
 {
-	int i;
 	long int primero, segundo, resultado, suma;
 
 	primero = 0;
@@ -17,7 +16,7 @@ int main(void)
 		resultado = primero + segundo;
 		primero = segundo;
 		segundo = resultado;
-		if (resultado <= 4000000);
+		if (resultado <= 4000000)
 		{
 			if (resultado % 2 == 0)
 				suma = suma + resultado;
