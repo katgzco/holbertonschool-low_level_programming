@@ -11,7 +11,7 @@ int main(void)
 	primero = 1;
 	segundo = 2;
 	resultado = 0;
-	printf("%li, %li, ", primero, segundo);
+/*	printf("%li, %li, ", primero, segundo); */
 	for (i = 0; i < 50; i++)
 	{
 		resultado = primero + segundo;
