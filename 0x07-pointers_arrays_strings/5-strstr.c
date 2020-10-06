@@ -10,19 +10,19 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*haystack != '\0')
 	{
-		while (*j == *haystack && *needle != '\0' && *haystack != '\0')
+		char *i = haystack;
+		char *j = needle;
+
+		while (*j == *haystack && *j != '\0' && *haystack != '\0')
 		{
 			haystack++;
-			needle++;
-
+			j++;
 		}
-		if (*needle == '\0')
+		if (*j == '\0')
 		{
 			return (i);
 		}
-		haystack += 1;
-
+		haystack = i + 1;
 	}
 	return (0);
-
 }
