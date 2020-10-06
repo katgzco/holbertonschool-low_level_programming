@@ -9,7 +9,7 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i;
 
-	while(*s)
+	while(*s != '\0')
 	{/*evaluate if the character pass is equal to the string character*/
 		if (*s == c)
 			return (s);
