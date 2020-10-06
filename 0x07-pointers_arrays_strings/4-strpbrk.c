@@ -7,9 +7,11 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-	while (1)
+	int i;
+	
+	while (*s != '\0')
 	{
-		for (int i = 0; *(accept + i); i++)
+		for (i = 0; *(accept + i); i++)
 		{
 /*evaluate if the character pass is equal to the string character*/
 			if (*s == *(accept + i))
