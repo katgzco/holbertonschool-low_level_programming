@@ -7,12 +7,10 @@
  */
 char *_strchr(char *s, char c)
 {
-	while ((*s) != '\0')
+	while (1)
 	{/*evaluate if the character pass is equal to the string character*/
 		if (*s == c)
 			return (s);
-		if (*s == '\0')
-			return (0);
 		s++;
 	}
 	return (0);
