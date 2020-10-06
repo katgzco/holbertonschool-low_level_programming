@@ -7,7 +7,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	while (1)
+	while ((*s))
 	{/*evaluate if the character pass is equal to the string character*/
 		if (*s == c)
 			return (s);
