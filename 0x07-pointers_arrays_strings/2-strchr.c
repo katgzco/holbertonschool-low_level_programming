@@ -9,10 +9,11 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i;
 
-	for (i = 0; *s; s++, i++)
+	while(*s)
 	{/*evaluate if the character pass is equal to the string character*/
 		if (*s == c)
 			return (s);
+		s++;
 	}
 	return ('\0');
 }
