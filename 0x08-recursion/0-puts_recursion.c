@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * _puts_recursion -  prints a string.
- * s: get an array of string for print.
+ * @s: get an array of string for print.
  */
 void _puts_recursion(char *s)
 {
@@ -10,6 +10,5 @@ void _puts_recursion(char *s)
 		_puts_recursion(s + 1);
 		_putchar(*s);
 	}
-	else
 		_putchar('\n');
 }
