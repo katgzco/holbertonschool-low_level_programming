@@ -1,28 +1,29 @@
 #include "holberton.h"
 /**
-  * prime_number - auxiliar function.
-  * @n: number of function.
-  * @n_module: number.
-  * Return: number prime.
-  */
-int prime_number(int n, int n_module)
-{
-	if (n % n_module != 0 && n > 2)
-	{
-		if (n_module > n / 2)
-			return (1);
-	}
-	else
-		return (0);
-	return (prime_number(n, n_module + 1));
-}
-/**
-  * is_prime_number - find prime number.
-  * @n: number.
-  *
-  * Return: number prime.
-  */
+ * is_prime_number - evaluate if input integer is a prime number.
+ * @n: number to evaluate.
+ * Return: 1  is a primer or 0 if not.
+ */
+int auxiliar(int n, int i);
 int is_prime_number(int n)
 {
-	return (prime_number(n, 2));
+	if (n <= 1)
+		return (0);
+	else
+		return (auxiliar(n, 2));
+}
+/**
+ * auxiliar - auxiliar from main function.
+ * @n: number pass.
+ * @i: divisor.
+ * Return: 1 or 0.
+ */
+int auxiliar(int n, int i)
+{
+	if (n % i == 0)
+		return (0);
+	else if (n >= i)
+		return (1);
+	else
+		return (auxiliar(n, i + 1));
 }
