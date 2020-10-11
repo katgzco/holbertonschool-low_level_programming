@@ -8,12 +8,11 @@
 int main(int argc, char *argv[])
 {
 	int suma = 0;
-	int i = 1;
+	int i;
 
-	///if (argc )
-	//	printf("0\n");
-	//else
-//	{
+	if (argc < 1)
+		printf("0\n");
+
 		for (i = 1; i < argc; i++)
 		{
 			if (*(*(argv + i)) <= '0' || (*(*(argv + i)) >= '9'))
@@ -21,12 +20,9 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);												
 			}
-			else if (*(*(argv + i)) >= '0' && (*(*(argv + i)) <= '9'))
-				suma += atoi(*(argv + i));
 			else
-				printf("0\n");
-		}
-//	}	
+				suma += atoi(*(argv + i));			
+		}	
 	printf("%d\n", suma);
 	return  (0);
 }
