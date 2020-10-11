@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <ctype.h>
 /**
  * main - program that prints its name.
  * @argc: the size of the array.
@@ -9,13 +10,9 @@ int main(int argc, char *argv[])
 {
 	int suma = 0;
 	int i;
-
-	if (argc < 1)
-		printf("0\n");
-
 		for (i = 1; i < argc; i++)
 		{
-			if (*(*(argv + i)) <= '0' || (*(*(argv + i)) >= '9'))
+			if (!isdigit(*(*(argv + i))))
 			{
 				printf("Error\n");
 				return (1);												
