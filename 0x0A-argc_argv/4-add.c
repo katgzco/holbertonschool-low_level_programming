@@ -10,16 +10,21 @@ int main(int argc, char *argv[])
 {
 	int suma = 0;
 	int i;
-		for (i = 1; i < argc; i++)
+
+	argv++;
+	while (--argc)
+	{
+		for (i = 0; *((*argv) + i); i++)
 		{
-			if (!isdigit(*(*(argv + i))))
+			if (!isdigit(*((*argv) + i)))
 			{
 				printf("Error\n");
-				return (1);												
+				return (1);
 			}
-			else
-				suma += atoi(*(argv + i));			
-		}	
+		}
+	suma += atoi(*argv);
+	argv++;
+	}
 	printf("%d\n", suma);
 	return  (0);
 }
