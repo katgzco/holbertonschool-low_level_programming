@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
 	int cents = 0;
 	int coin = 0;
-	int i;
+	unsigned long int i;
 	int numbers[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
