@@ -3,6 +3,7 @@
  * main - program that prints its name.
  * @argc: the size of the array.
  * @argv: A pointer that points to an array of characters.
+ * Return: 0 succesfull.
  */
 int main(int argc, char *argv[] __attribute__((unused)))
 {
