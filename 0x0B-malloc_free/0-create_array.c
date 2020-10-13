@@ -1,4 +1,4 @@
-#include"holberton.h"
+#include "holberton.h"
 /**
  * create_array - Crate an array and asigned c in memory.
  * @size: The length of the array.
@@ -15,7 +15,7 @@ char *create_array(unsigned int size, char c)
 	if (p)
 	{
 		for (unsigned int i = 0; i < size; i++)
-		*(p + i) = c;
+			p[i] = c;
 		return (p);
 	}
 	return (0);
