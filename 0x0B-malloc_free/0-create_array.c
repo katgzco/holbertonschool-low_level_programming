@@ -24,5 +24,5 @@ char *create_array(unsigned int size, char c)
 			return (p);
 		}
 		else
-		return (0);
+			return (0);
 }
