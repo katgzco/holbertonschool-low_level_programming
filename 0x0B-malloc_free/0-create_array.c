@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 /**
  * create_array - Crate an array and asigned c in memory.
  * @size: The length of the array.
