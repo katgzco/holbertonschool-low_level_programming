@@ -12,12 +12,12 @@ int lenght_copy = 0;
 char *p = NULL;
 
 if (str == NULL)
-	return (NULL);
+	return (0);
 while (*(str + lenght))
 	lenght++;
-p = malloc(lenght * sizeof(char));
+p = malloc(lenght * sizeof(char) + 1);
 if (p == NULL)
-	return (NULL);
+	return (0);
 for (lenght_copy = 0; lenght >= lenght_copy; lenght_copy++)
 	*(p + lenght_copy) = *(str + lenght_copy);
 return (p);
