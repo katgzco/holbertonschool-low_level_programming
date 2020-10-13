@@ -8,12 +8,12 @@
 char *create_array(unsigned int size, char c)
 {
 	if (size == 0)
-		return (NULL);
+		return (0);
 	char *p = NULL;
 
 	p = malloc(size * sizeof(char));
 	if (p == NULL)
-		return (NULL);
+		return (0);
 	for (unsigned int i = 0; i < size; i++)
 		*(p + i) = c;
 	return (p);
