@@ -23,9 +23,11 @@ lenght += lenght2;
 p = malloc((lenght * sizeof(char)) + 1);
 if (p == NULL)
 	return (0);
-for (lenght = 0; *(s1 + lenght); lenght++)
+lenght = 0;
+lenght2 = 0;
+for ( ; *(s1 + lenght); lenght++)
 	*(p + lenght) = *(s1 + lenght);
-for (lenght2 = 0; *(s2 + lenght2); lenght2++, lenght++)
+for ( ; *(s2 + lenght2); lenght2++, lenght++)
 	*(p + lenght) = *(s2 + lenght2);
 *(p + lenght) = '\0';
 return (p);
