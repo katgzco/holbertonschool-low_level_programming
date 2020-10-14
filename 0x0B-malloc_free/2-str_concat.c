@@ -1,32 +1,32 @@
-#include"holberton.h"
+#include "holberton.h"
 /**
- * str_concat- Write a function that concatenates two strings.
- * @s1: dest string.
- * @s2: source string.
- * Return: return a pointer of the concatenate string.
- */
+  * str_concat - concatenates two strings.
+  *
+  * @s1: First String.
+  * @s2: Second String.
+  * Return: NULL or String concatenate.
+  */
 char *str_concat(char *s1, char *s2)
 {
-	int lenght, lenght2, lenght_copy;
-	char *p = NULL;
+	char *pointer;
+	unsigned int index, index1, size1, size2;
 
 	if (s1 == NULL)
-		*s1 = '\0';
+		s1 = "";
 	if (s2 == NULL)
-		*s2 = '\0';
-	for (lenght = 0; *(s1 + lenght); lenght++)
-		;
-	for (lenght2 = 0; *(s2 + lenght2); lenght2++)
-		;
-	lenght += lenght2;
-	lenght--;
-	p = malloc(lenght * sizeof(char) + 1);
-	if (p == NULL)
-		return (0);
-	for (lenght_copy = 0; *s1; lenght_copy++, s1++)
-		*(p + lenght_copy) = *s1;
-	for ( ; *s2; lenght_copy++, s2++)
-		*(p + lenght_copy) = *s2;
-	return (p);
+		s2 = "";
+	for (size1 = 0; s1[size1] != 0; size1++)
+	{
+	}
+	for (size2 = 0; s2[size2] != 0; size2++)
+	{
+	}
+	pointer = malloc((size1 + size2) * sizeof(char) + 1);
+	if (pointer == NULL)
+		return (NULL);
+	for (index = 0; index < size1; index++)
+		pointer[index] = s1[index];
+	for (index1 = 0; index1 < size2; index1++)
+		pointer[size1 + index1] = s2[index1];
+	return (pointer);
 }
-
