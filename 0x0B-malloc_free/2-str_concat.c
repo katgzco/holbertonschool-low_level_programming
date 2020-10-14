@@ -10,6 +10,10 @@ char *str_concat(char *s1, char *s2)
 	int lenght, lenght2, lenght_copy;
 	char *p = NULL;
 
+	if (*s1 == NULL)
+		*s1 = "";
+	if (*s2 == NULL )
+		*s2 = "";
 	for (lenght = 0; *(s1 + lenght); lenght++)
 		;
 	for (lenght2 = 0; *(s2 + lenght2); lenght2++)
