@@ -12,14 +12,15 @@ char *p = NULL;
 
 lenght = lenght2 = 0;
 if (s1 == NULL)
-	*s1 = '\0';
+	s1 = "";
 if (s2 == NULL)
-	*s2 = '\0';
-for ( ; *(s1 + lenght); lenght++)
+	s2 = "";
+while (*(s1 + lenght))
+	lenght++;
 	;
-for ( ; *(s2 + lenght2); lenght2++)
-	;
-lenght += lenght2;
+while (*(s2 + lenght2))
+	lenght2++;
+lenght = lenght + lenght2;
 p = malloc((sizeof(char) * lenght)+1);
 if (p == NULL)
 	return (0);
