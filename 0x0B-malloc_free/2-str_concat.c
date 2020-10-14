@@ -38,6 +38,7 @@ char *str_concat(char *s1, char *s2)
 		*(p + lenght_copy) = *s1;
 	for ( ; *s2; lenght_copy++, s2++)
 		*(p + lenght_copy) = *s2;
+	*(p + lenght_copy) = '\0';
 	return (p);
 }
 
