@@ -10,7 +10,7 @@ char *str_concat(char *s1, char *s2)
 	int lenght, lenght2, lenght_copy;
 	char *p = NULL;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (0);
 	for (lenght = 0; *(s1 + lenght); lenght++)
 		;
@@ -27,3 +27,4 @@ char *str_concat(char *s1, char *s2)
 		*(p + lenght_copy) = *s2;
 	return (p);
 }
+
