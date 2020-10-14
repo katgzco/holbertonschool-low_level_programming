@@ -1,2 +1,1 @@
-# C - malloc, free.
-
+Dinamyc allocation
