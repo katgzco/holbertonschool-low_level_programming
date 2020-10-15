@@ -27,8 +27,8 @@ if (p == NULL)
 	return (0);
 for (lenght = 0; *(s1 + lenght); lenght++)
 	p[lenght] = s1[lenght];
-while (lenght2 < n && *(s2 + lenght2))
-	p[lenght++] = s2[lenght2++];
+for (lenght2 = 0; lenght2 < n && *(s2 + lenght2); lenght++, lenght2++)
+	*(p + lenght) = *(s2 + lenght2);
 *(p + lenght) = '\0';
 return (p);
 }
