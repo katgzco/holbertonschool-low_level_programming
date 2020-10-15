@@ -11,6 +11,7 @@ int length(char *s)
 
 	while (*(s + i))
 		i++;
+	i--;
 	return (i);
 }
 
