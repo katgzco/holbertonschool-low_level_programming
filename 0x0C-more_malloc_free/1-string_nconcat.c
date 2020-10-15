@@ -22,23 +22,15 @@ while (*(s2 + lenght2))
 	lenght2++;
 if (n >= (lenght2 + 1))
 	n = (lenght2 + 1);
-lenght = lenght + lenght2;
-p = malloc(sizeof(char) * lenght);
+p = malloc(lenght + lenght2);
 if (p == NULL)
 	return (0);
 lenght = 0;
 lenght2 = 0;
 while (*(s1 + lenght))
-{
-	*(p + lenght) = *(s1 + lenght);
-	lenght++;
-}
-while (lenght2 < n)
-{
-	*(p + lenght) = *(s2 + lenght2);
-	lenght++;
-	lenght2++;
-}
+	p [lenght++] = s1 [lenght];
+while (lenght2 < n && s2[lenght2++])
+	p[lenght++] = s2 [lenght2++];
 *(p + lenght) = '\0';
 return (p);
 }
