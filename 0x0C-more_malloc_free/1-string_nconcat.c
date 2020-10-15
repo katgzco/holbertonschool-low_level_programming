@@ -32,21 +32,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 	size = length(s2);
-	size++;
-	if (n >= size)
-	n = size;
 	size2 = length(s1);
 	size2 += size;
-	p = malloc(sizeof(char) * size2);
+	p = malloc((sizeof(char) * size2) + 1);
 	if (p == NULL)
 		return (0);
+	if (n >= size)
+	n = size;
 	size2 = size = 0;
 	while (*(s1 + size2))
 	{
 		*(p + size2) = *(s1 + size2);
 		size2++;
 	}
-	while (size < n)
+	while (size <= n)
 	{
 		*(p + size2) = *(s2 + size);
 		size++;
