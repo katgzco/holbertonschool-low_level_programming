@@ -15,28 +15,20 @@ if (s1 == NULL)
 	s1 = "";
 if (s2 == NULL)
 	s2 = "";
-while (*(s1 + lenght))
-	lenght++;
+for ( ; *(s1 + lenght); lenght++)
 	;
-while (*(s2 + lenght2))
-	lenght2++;
+for ( ; *(s2 + lenght); lenght2++)
+	;
 lenght = lenght + lenght2;
 p = malloc((sizeof(char) * lenght)+1);
 if (p == NULL)
 	return (0);
 lenght = 0;
 lenght2 = 0;
-while(*(s1 + lenght))
-	{
-		*(p + lenght) = *(s1 + lenght);
-		lenght++;
-	}
-while (*(s2 + lenght2))
-	{
-		*(p + lenght) = *(s2 + lenght2);
-		lenght++;
-		lenght2++;
-	}
+for ( ; *(s1 + lenght); lenght++)
+	*(p + lenght) = *(s1 + lenght);
+for ( ; *(s2 + lenght2); lenght2++, lenght++)
+	*(p + lenght) = *(s2 + lenght2);
 *(p + lenght) = '\0';
 return (p);
 }
