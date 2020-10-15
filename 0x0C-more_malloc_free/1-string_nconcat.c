@@ -20,12 +20,10 @@ while (*(s1 + lenght))
 	lenght++;
 while (*(s2 + lenght2))
 	lenght2++;
-if (n >= lenght2)
-	n = lenght2;
-	else
-		lenght2 = n;
+if (n >= (lenght2 + 1))
+	n = (lenght2 + 1);
 lenght = lenght + lenght2;
-p = malloc((sizeof(char) * lenght)+1);
+p = malloc(sizeof(char) * lenght);
 if (p == NULL)
 	return (0);
 lenght = 0;
@@ -35,7 +33,7 @@ while (*(s1 + lenght))
 	*(p + lenght) = *(s1 + lenght);
 	lenght++;
 }
-while (lenght2 <= n)
+while (lenght2 < n)
 {
 	*(p + lenght) = *(s2 + lenght2);
 	lenght++;
