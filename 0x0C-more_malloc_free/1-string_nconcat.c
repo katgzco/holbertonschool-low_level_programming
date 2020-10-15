@@ -20,12 +20,14 @@ while (*(s1 + lenght))
 	lenght++;
 while (*(s2 + lenght2))
 	lenght2++;
+if (n >= lenght2)
+	n = lenght2;
+	else
+		lenght2 = n;
 lenght = lenght + lenght2;
 p = malloc((sizeof(char) * lenght)+1);
 if (p == NULL)
 	return (0);
-if (n >= lenght2)
-	n = lenght2;
 lenght = 0;
 lenght2 = 0;
 while (*(s1 + lenght))
