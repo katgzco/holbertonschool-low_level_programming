@@ -1,20 +1,4 @@
 #include "holberton.h"
-
-/**
- * length - Get the  length f an array.
- * @s: get the string to found the lenght.
- * Return: the size of the length.
- */
-int length(char *s)
-{
-	unsigned int i = 0;
-
-	while (*(s + i))
-		i++;
-	i--;
-	return (i);
-}
-
 /**
  * string_nconcat - concatenates two strings.
  * @n: the size of the s2 string.
@@ -24,34 +8,37 @@ int length(char *s)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *p = NULL;
-	unsigned int size, size2;
+unsigned int lenght, lenght2;
+char *p = NULL;
 
-	size = size2 = 0;
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	size = length(s2);
-	size2 = length(s1);
-	size2 += size;
-	p = malloc((sizeof(char) * size2) + 1);
-	if (p == NULL)
-		return (0);
-	if (n >= size)
-	n = size;
-	size2 = size = 0;
-	while (*(s1 + size2))
-	{
-		*(p + size2) = *(s1 + size2);
-		size2++;
-	}
-	while (size <= n)
-	{
-		*(p + size2) = *(s2 + size);
-		size++;
-		size2++;
-	}
-	*(p + size2) = '\0';
-	return (p);
+lenght = lenght2 = 0;
+if (s1 == NULL)
+	s1 = "";
+if (s2 == NULL)
+	s2 = "";
+while (*(s1 + lenght))
+	lenght++;
+while (*(s2 + lenght2))
+	lenght2++;
+lenght = lenght + lenght2;
+p = malloc((sizeof(char) * lenght)+1);
+if (p == NULL)
+	return (0);
+if (n >= lenght2)
+	n = lenght2;
+lenght = 0;
+lenght2 = 0;
+while (*(s1 + lenght))
+{
+	*(p + lenght) = *(s1 + lenght);
+	lenght++;
+}
+while (lenght2 <= n)
+{
+	*(p + lenght) = *(s2 + lenght2);
+	lenght++;
+	lenght2++;
+}
+*(p + lenght) = '\0';
+return (p);
 }
