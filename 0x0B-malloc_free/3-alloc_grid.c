@@ -30,7 +30,10 @@ for (row = 0; row < height; row++)
 	{
 	row--;
 	while(row >= 0)
-		free(p[row--]);
+		{
+			free(p[row]);
+			row--;
+		}
 }
 if (p[row] == NULL)
 	return (0);
