@@ -14,10 +14,7 @@ if (width <= 0 || height <= 0)
 	return (0);
 p = (malloc(sizeof(int *) * height));
 if (p == NULL)
-{
-	free(p);
 	return 0;
-}
 for (row = 0; row < height; row++)
 {
 	p[row] = (malloc(sizeof(int) * width));
@@ -28,14 +25,9 @@ for (row = 0; row < height; row++)
 	}
 	else
 	{
-	row--;
-	while(row >= 0)
-		{
+	for(row--;row >= 0; row--)
 			free(p[row]);
-			row--;
-		}
-}
-if (p[row] == NULL)
+	free(p);
 	return (0);
 }
 return (p);
