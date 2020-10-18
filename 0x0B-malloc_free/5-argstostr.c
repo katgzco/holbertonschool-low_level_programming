@@ -11,6 +11,7 @@ char *argstostr(int ac, char **av)
 	int row, column, length;
 
 	if (ac == 0 || av == NULL)
+		return (0);
 	length = 1;
 	for (row = 0; row < ac; row++)
 	{
