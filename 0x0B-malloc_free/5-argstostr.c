@@ -10,13 +10,14 @@ char *argstostr(int ac, char **av)
 	char *p = NULL;
 	int row, column, length;
 
+	length = 0;
 	if (ac == 0 || av == NULL)
 		return (0);
-	length = 1;
 	for (row = 0; row < ac; row++)
 	{
 		for (column = 0; av[row][column]; column++)
-			length++;
+			;
+		length += column;
 	}
 	p = malloc((sizeof(char) * length + ac) + 1);
 	if (p == NULL)
