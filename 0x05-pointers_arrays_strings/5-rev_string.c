@@ -5,19 +5,21 @@
  */
 void rev_string(char *s)
 {
-	char *aux1 = s;
+	char tmp;
+	char *aux = s;
 	char *aux2 = s;
-	char vara;
 
 	while (*(aux2 + 1))
 		aux2++;
-	while (aux1 < aux2)
-	{
-		vara = *aux1;
-		*aux1 = *aux2;
-		*aux2 = vara;
 
-		aux1++;
+
+	while (aux < aux2)
+	{
+		tmp = *aux;
+		*aux = *aux2;
+		*aux2 = tmp;
+
+		aux++;
 		aux2--;
 	}
 }
