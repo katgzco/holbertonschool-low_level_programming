@@ -5,6 +5,7 @@
  * @name:The name of the dog
  * @age: The age of the dog
  * @owner: the owner of the dog.
+ * @dog_t: A new type of the structure.
  */
 typedef struct dog
 {
