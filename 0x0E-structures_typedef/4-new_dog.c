@@ -13,32 +13,33 @@ dog_t *new_dog(char *name, float age, char *owner)
 	int indexn, indexo;
 
 	mydog = malloc(sizeof(dog_t));
-	if (!mydog)
+	if (mydog == NULL)
 		return (0);
-	for (indexn = 0; *(name + indexn); indexn++)
+	for (indexn = 0; name[indexn]; indexn++)
 		;
-	for (indexo = 0; *(name + indexo); indexo++)
+	for (indexo = 0; name[indexo]; indexo++)
 		;
 	mydog->age = age;
 	mydog->name = malloc(indexn + 1);
-	if (!mydog->name)
+	if (mydog->name == NULL)
 	{
 		free(mydog);
 		return (0);
 	}
-	for (indexn = 0; *(name + indexn); indexn++)
-		mydog->name[indexn] = *(name + indexn);
+	for (indexn = 0; name[indexn]; indexn++)
+		mydog->name[indexn] = name[indexn];
 	mydog->name[indexn] = '\0';
 	mydog->owner = malloc(indexo + 1);
 	if (mydog->owner)
 	{
-		for (indexo = 0; *(owner + indexo); indexo++)
-			mydog->owner[indexo] = *(owner + indexo);
+		for (indexo = 0; owner[indexo]; indexo++)
+			mydog->owner[indexo] = owner[indexo];
 		mydog->owner[indexo] = '\0';
 	}
 	else
 	{
 		free(mydog->name);
+		fre(mydog->age);
 		free(mydog);
 		return (0);
 	}
