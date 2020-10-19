@@ -1,24 +1,18 @@
 #include "holberton.h"
 /**
-  * print_rev - Returns the length of a string.
+  * print_rev - reverses a string.
   * @s: char pointer.
-  * Return: length of a string.
   */
 void print_rev(char *s)
 {
-	int count;
+	char *beg = s;
 
-	while (*s != 0)
-	{
-		count++;
+	while (*s)
 		s++;
-	}
-	s--;
-	while (count - 1 >= 0)
+	while (s != beg)
 	{
 		_putchar(*s);
-		count--;
 		s--;
 	}
-	_putchar(10);
+_putchar('\n');
 }
