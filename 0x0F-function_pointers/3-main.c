@@ -1,5 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
 /**
  * main - get the dates for operate the calculator
  * @argc: the length of the array.

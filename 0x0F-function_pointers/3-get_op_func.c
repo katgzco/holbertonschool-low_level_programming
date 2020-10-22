@@ -1,5 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
 /**
  * get_op_func - function that searches the position of an integer.
  * @s:Get an array.
