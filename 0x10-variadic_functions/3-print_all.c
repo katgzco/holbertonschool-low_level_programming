@@ -9,7 +9,7 @@ void print_all(const char * const format, ...)
 	va_list arg;
 	char *s;
 
-	va_star(arg, format);
+	va_start(arg, format);
 	j = 0;
 	while (format[j])
 	{
@@ -25,11 +25,13 @@ void print_all(const char * const format, ...)
 				printf("%f", va_arg(arg, double));
 			break;
 			case 's':
-			s = va_arg(arg, char *);
-				if (s  != NULL)
+				s = va_arg(arg, char *);
+				if (s != NULL)
+				{
 					printf("%s", s);
-				else
-					printf("(nil)");
+					break;
+				}
+				printf("(nil)");
 			break;
 		}
 		if ((format[j] == 'c' || format[j] == 'f' || format[j] == 's' ||
