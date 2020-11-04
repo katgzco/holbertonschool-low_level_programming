@@ -8,9 +8,9 @@ int pop_listint(listint_t **head)
 {
 	listint_t *store_addres = NULL;
 	int store_int = 0;
+
 	if (*head == NULL)
 		return (0);
-
 	store_int = (*head)->n;
 	store_addres = (*head)->next;
 	free(*head);
