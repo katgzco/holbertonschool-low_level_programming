@@ -10,13 +10,12 @@ int pop_listint(listint_t **head)
 	int store_int = 0;
 	if (head == NULL)
 		return (0);
-	/*if the node exist */
-	if (head != NULL)
-	{	/*store the information */
-		store_int = (*head)->n;
-		store_addres = (*head)->next;
-		free(*head);
-		(*head) = store_addres;
-	}
+
+	store_int = (*head)->n;
+	store_addres = (*head)->next;
+	free(*head);
+	(*head) = store_addres;
+	head = NULL;
+
 	return (store_int);
 }
