@@ -8,7 +8,8 @@ int pop_listint(listint_t **head)
 {
 	listint_t *store_addres = NULL;
 	int store_int = 0;
-
+	if (head == NULL)
+		return (0);
 	/*if the node exist */
 	if (head != NULL)
 	{	/*store the information */
