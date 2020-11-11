@@ -1,5 +1,6 @@
 #include "holberton.h"
 #define PERMS 0666
+void printferror(char *msg, char *argum, int exitcode);
 /**
  * main -  copies the content of a file to another file.
  * @arg: get the array of characters from the terminal.
@@ -8,7 +9,7 @@
  */
 int main(int length, char **arg __attribute__((unused)))
 {
-	ssize_t FD_VALUEF = 0, FD_VALUET = 0, bytes = 0;
+	ssize_t FD_VALUEF = 0, FD_VALUET = 0, bytes = 0, closef = 0, closet = 0;
 	char buffer[BUFSIZ];
 
 	if (length != 3)
@@ -19,26 +20,34 @@ int main(int length, char **arg __attribute__((unused)))
 	/*Open file from, */
 	FD_VALUEF = open(arg[1], O_RDONLY);
 	if (FD_VALUEF == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg[1]);
-		exit(98);
-	}
+		printferror("Error: Can't read from file", arg[1], 98);
 	/*Open file to */
-	FD_VALUET = open(arg[2], O_CREAT | O_TRUNC | O_WRONLY, PERMS);
+	FD_VALUET = open(arg[2], O_CREAT | O_WRONLY | O_TRUNC, PERMS);
 	if (FD_VALUET == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg[2]);
-		exit(99);
-	}
+		printferror("Error: Can't write to", arg[2], 99);
+
 	while ((bytes = read(FD_VALUEF, buffer, BUFSIZ)) > 0)
+	{
 		if (write(FD_VALUET, buffer, bytes) != bytes)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg[2]);
-			close(FD_VALUEF);
-			close(FD_VALUET);
-			exit(99);
-		}
-	close(FD_VALUEF);
-	close(FD_VALUET);
+			printferror("Error: Can't write to ", arg[2], 99);
+	}
+
+	closef = close(FD_VALUEF);
+	if (closef == -1)
+		printferror("Error: Can't close fd FD_VALUE", arg[1], 100);
+	closet = close(FD_VALUET);
+	if (closet == -1)
+		printferror("Error: Can't close fd FD_VALUE", arg[2], 100);
 	return (0);
+}
+/**
+ * printferror - print the error mesage of a function.
+ * @msg: get the array of characters for printf.
+ * @argum: get the argument to printf.
+ * @exitcode: the number to print in exit.
+ */
+void printferror(char *msg, char *argum, int exitcode)
+{
+	dprintf(STDERR_FILENO, " %s %s\n", msg, argum);
+	exit(exitcode);
 }
