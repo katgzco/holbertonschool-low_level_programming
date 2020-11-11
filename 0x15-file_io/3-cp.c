@@ -1,13 +1,13 @@
 #include "holberton.h"
 #define PERMS 0664
-void printferror(char *msg, char *argum, int exitcode);
+void printferror(const char *msg, const char *argum, ssize_t exitcode);
 /**
  * main -  copies the content of a file to another file.
  * @arg: get the array of characters from the terminal.
  * @length: get the size of the length of characters.
  * Return: 0 in succes or -1 if exist a error.
  */
-int main(int length, char **arg __attribute__((unused)))
+int main(int length, char **arg)
 {
 	ssize_t FD_VALUEF = 0, FD_VALUET = 0, bytes = 0, closef = 0, closet = 0;
 	char buffer[BUFSIZ];
@@ -46,7 +46,7 @@ int main(int length, char **arg __attribute__((unused)))
  * @argum: get the argument to printf.
  * @exitcode: the number to print in exit.
  */
-void printferror(const char *msg, const char *argum, ssize_t  exitcode)
+void printferror(const char *msg, const char *argum, ssize_t exitcode)
 {
 	dprintf(STDERR_FILENO, " %s %s\n", msg, argum);
 	exit(exitcode);
