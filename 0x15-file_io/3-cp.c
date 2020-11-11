@@ -27,7 +27,7 @@ int main(int length, char **arg)
 
 	while ((bytes = read(fd_from, buffer, BUFSIZ)) > 0)
 	{
-		write(fd_to, buffer, bytes);
+		byteswrite = write(fd_to, buffer, bytes);
 			if (byteswrite == -1)
 				printferror("Error: Can't write to", arg[2], 99);
 	}
