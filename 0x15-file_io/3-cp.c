@@ -1,6 +1,6 @@
 #include "holberton.h"
 #define PERMS 0664
-void printferror(const char *msg, const char *argum, ssize_t exitcode);
+void printferror(const char *msg, const char *argum, int exitcode);
 /**
  * main -  copies the content of a file to another file.
  * @arg: get the array of characters from the terminal.
@@ -9,7 +9,7 @@ void printferror(const char *msg, const char *argum, ssize_t exitcode);
  */
 int main(int length, char **arg)
 {
-	ssize_t FD_VALUEF = 0, FD_VALUET = 0, bytes = 0, closef = 0, closet = 0;
+	int FD_VALUEF = 0, FD_VALUET = 0, bytes = 0, closef = 0, closet = 0, byteswrite = 0;
 	char buffer[BUFSIZ];
 
 	if (length != 3)
@@ -28,8 +28,9 @@ int main(int length, char **arg)
 
 	while ((bytes = read(FD_VALUEF, buffer, BUFSIZ)) > 0)
 	{
-		if (write(FD_VALUET, buffer, bytes) != bytes)
-			printferror("Error: Can't write to ", arg[2], 99);
+		write(FD_VALUET, buffer, bytes);
+			if (byteswrite == -1)
+				printferror("Error: Can't write to", arg[2], 99);
 	}
 
 	closef = close(FD_VALUEF);
@@ -46,7 +47,7 @@ int main(int length, char **arg)
  * @argum: get the argument to printf.
  * @exitcode: the number to print in exit.
  */
-void printferror(const char *msg, const char *argum, ssize_t exitcode)
+void printferror(const char *msg, const char *argum, int exitcode)
 {
 	dprintf(STDERR_FILENO, " %s %s\n", msg, argum);
 	exit(exitcode);
