@@ -1,5 +1,5 @@
 #include "holberton.h"
-#define PERMS 0666
+#define PERMS 0664
 void printferror(char *msg, char *argum, int exitcode);
 /**
  * main -  copies the content of a file to another file.
@@ -34,10 +34,10 @@ int main(int length, char **arg __attribute__((unused)))
 
 	closef = close(FD_VALUEF);
 	if (closef == -1)
-		printferror("Error: Can't close fd FD_VALUE", arg[1], 100);
+		printferror("Error: Can't close fd", arg[1], 100);
 	closet = close(FD_VALUET);
 	if (closet == -1)
-		printferror("Error: Can't close fd FD_VALUE", arg[2], 100);
+		printferror("Error: Can't close fd", arg[2], 100);
 	return (0);
 }
 /**
@@ -46,7 +46,7 @@ int main(int length, char **arg __attribute__((unused)))
  * @argum: get the argument to printf.
  * @exitcode: the number to print in exit.
  */
-void printferror(char *msg, char *argum, int exitcode)
+void printferror(const char *msg, const char *argum, ssize_t  exitcode)
 {
 	dprintf(STDERR_FILENO, " %s %s\n", msg, argum);
 	exit(exitcode);
