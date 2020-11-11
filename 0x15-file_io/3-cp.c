@@ -1,5 +1,4 @@
 #include "holberton.h"
-#define PERMS 0664
 void printferror(const char *msg, const char *argum, int exitcode);
 /**
  * main -  copies the content of a file to another file.
@@ -9,7 +8,7 @@ void printferror(const char *msg, const char *argum, int exitcode);
  */
 int main(int length, char **arg)
 {
-	int FD_VALUEF = 0, FD_VALUET = 0, bytes = 0, closef = 0, closet = 0, byteswrite = 0;
+	int fd_to = 0, fd_from = 0, bytes = 0, closef = 0, closet = 0, byteswrite = 0;
 	char buffer[BUFSIZ];
 
 	if (length != 3)
@@ -18,25 +17,27 @@ int main(int length, char **arg)
 		exit(97);
 	}
 	/*Open file from, */
-	FD_VALUEF = open(arg[1], O_RDONLY);
-	if (FD_VALUEF == -1)
+	fd_from = open(arg[1], O_RDONLY);
+	if (fd_from == -1)
 		printferror("Error: Can't read from file", arg[1], 98);
 	/*Open file to */
-	FD_VALUET = open(arg[2], O_CREAT | O_WRONLY | O_TRUNC, PERMS);
-	if (FD_VALUET == -1)
+	fd_to = open(arg[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd_to == -1)
 		printferror("Error: Can't write to", arg[2], 99);
 
-	while ((bytes = read(FD_VALUEF, buffer, BUFSIZ)) > 0)
+	while ((bytes = read(fd_from, buffer, BUFSIZ)) > 0)
 	{
-		write(FD_VALUET, buffer, bytes);
+		write(fd_to, buffer, bytes);
 			if (byteswrite == -1)
 				printferror("Error: Can't write to", arg[2], 99);
 	}
+	if (bytes == -1)
+		printferror("Error: Can't read from file", arg[1], 98);
 
-	closef = close(FD_VALUEF);
+	closef = close(fd_from);
 	if (closef == -1)
 		printferror("Error: Can't close fd", arg[1], 100);
-	closet = close(FD_VALUET);
+	closet = close(fd_to);
 	if (closet == -1)
 		printferror("Error: Can't close fd", arg[2], 100);
 	return (0);
@@ -49,6 +50,6 @@ int main(int length, char **arg)
  */
 void printferror(const char *msg, const char *argum, int exitcode)
 {
-	dprintf(STDERR_FILENO, " %s %s\n", msg, argum);
+	dprintf(STDERR_FILENO, "%s %s\n", msg, argum);
 	exit(exitcode);
 }
