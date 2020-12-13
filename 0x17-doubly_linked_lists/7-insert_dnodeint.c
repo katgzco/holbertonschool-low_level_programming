@@ -67,6 +67,7 @@ dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx)
 		return (check_return);
 
 /*insert between nodes*/
+	head_ref = head_ref->prev;
 	head_ref_aux = head_ref->next;
 	head_ref->next = new_node;
 	head_ref_aux->prev = new_node;
