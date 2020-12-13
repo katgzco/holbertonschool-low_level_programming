@@ -3,6 +3,7 @@
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx);
 size_t dlistint_len(const dlistint_t *h);
+void *insert_nodelast(dlistint_t *head_ref, dlistint_t *new_node);
 
 /**
  * insert_dnodeint_at_index - check the position to insert the node.
@@ -14,10 +15,7 @@ size_t dlistint_len(const dlistint_t *h);
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-
 	dlistint_t *check_return = NULL;
-	const dlistint_t *head_length = *h;
-	size_t list_length = 0;
 
 /*check if is the first element*/
 	if (idx == 0)
@@ -29,19 +27,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (check_return);
 	}
 
-/*check if is the last element */
-	list_length = dlistint_len(head_length);
-	if (list_length == idx)
-	{
-		check_return = add_dnodeint(h, n);
-		if (check_return == NULL)
-			return (NULL);
-		else
-			return (check_return);
-	}
-
-/*creat the node in the middle*/
-
+/*creat the node in the between node or in the end*/
 	check_return = add_nodemid(h, n, idx);
 	{
 		if (check_return == NULL)
@@ -51,7 +37,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 
 	return (NULL);
-
 }
 
 /**
@@ -65,6 +50,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx)
 {
 	dlistint_t *head_ref = *head, *head_ref_aux = *head, *new_node = NULL;
+	dlistint_t *check_return = NULL;
 
 	head_ref = get_dnodeint_at_index(head_ref, idx);
 	if (head_ref == NULL)
@@ -75,6 +61,12 @@ dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx)
 		return (NULL);
 	new_node->n = n;
 
+/*check if is the last position, and inserts*/
+	check_return = insert_nodelast(head_ref, new_node);
+	if (check_return != NULL)
+		return (check_return);
+
+/*insert between nodes*/
 	head_ref_aux = head_ref->next;
 	head_ref->next = new_node;
 	head_ref_aux->prev = new_node;
@@ -83,6 +75,24 @@ dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx)
 
 	return (new_node);
 }
+/**
+ *insert_nodelast - Check if is the las position of the node and insert.
+ * @head_ref: the head of the list.
+ * @new_node: the node to insert.
+ * Return: the new node or null.
+ */
+void *insert_nodelast(dlistint_t *head_ref, dlistint_t *new_node)
+{
+	if (head_ref->next == NULL)
+	{
+		head_ref->next = new_node;
+		new_node->prev = head_ref;
+		return (new_node);
+	}
+	else
+		return (NULL);
+}
+
 
 /**
  * get_dnodeint_at_index - adds a new node at the end of a dlistint_t list.
@@ -126,3 +136,5 @@ size_t dlistint_len(const dlistint_t *h)
 	}
 	return (length);
 }
+
+
