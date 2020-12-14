@@ -14,15 +14,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *h_ref = *head;
 	/*check edge cases */
-	if (index > dlistint_len(*head) || *head == NULL)
+	if (*head == NULL || index > dlistint_len(*head))
 		return (-1);
 
 	/*check if is the first position*/
 	if (index == 0)
 	{
 		*head = h_ref->next;
-		if (h_ref->next != NULL)
-			h_ref->prev = NULL;
+		h_ref->prev = NULL;
 		free(h_ref);
 	}
 
