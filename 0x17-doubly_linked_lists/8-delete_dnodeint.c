@@ -13,9 +13,10 @@ dlistint_t *add_nodemid(dlistint_t **head, const int n, unsigned int idx);
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *h_ref = *head;
+	unsigned int count = 0;
 
 	/*check edge cases */
-	if (*head == NULL || index >= dlistint_len(*head))
+	if (*head == NULL || index > dlistint_len(*head))
 		return (-1);
 
 	/*check if is the first position*/
@@ -35,17 +36,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (1);
 	}
 
-	while (h_ref->next != NULL && index-- !=  0)
-	{
-		if (index == 0 && h_ref->next != NULL)
-		{
-			h_ref->prev->next = h_ref->next;
-			break;
-		}
+	while (index > count++)
 		h_ref = h_ref->next;
-	}
 
-	h_ref->next->prev = h_ref->next;
+	if (h_ref->next != NULL)
+		h_ref->next->prev = h_ref->prev;
+
+	h_ref->prev->next = h_ref->next;
+
 	free(h_ref);
 
 	return (1);
@@ -63,7 +61,7 @@ size_t dlistint_len(const dlistint_t *h)
 
 	if (h != NULL)
 	{
-		for (; h_reference != NULL; length++)
+		for (; h_reference->next != NULL; length++)
 			h_reference = h_reference->next;
 	}
 	return (length);
