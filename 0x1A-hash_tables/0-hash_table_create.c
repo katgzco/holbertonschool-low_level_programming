@@ -19,7 +19,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	/*allocate memory for the array member of the struct*/
-	new_hash->array = calloc(size, sizeof(hash_node_t));
+	new_hash->array = calloc(size, sizeof(hash_node_t *));
 	if (new_hash->array == NULL)
 	{
 		free(new_hash);
