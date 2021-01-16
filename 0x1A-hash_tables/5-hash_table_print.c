@@ -22,7 +22,7 @@ void hash_table_print(const hash_table_t *ht)
 			{
 				if (num_nodes > 0)
 					printf(", ");
-				printf("%s : %s", tmp->key, tmp->value);
+				printf("'%s' : '%s'", tmp->key, tmp->value);
 				num_nodes++;
 				tmp = tmp->next;
 			}
