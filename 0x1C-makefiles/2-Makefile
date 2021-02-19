@@ -5,6 +5,3 @@ NAME =  holberton
 
 all: $(OBJ)
 	$(CC) -o $(NAME) $(OBJ)
-
-%.o: %.c
-	$(CC) -c $^
