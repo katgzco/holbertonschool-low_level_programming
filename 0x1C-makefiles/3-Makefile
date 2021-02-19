@@ -1,0 +1,19 @@
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME =  holberton
+RM = rm -f
+
+all: $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) -c $^
+
+clean:
+	$(RM) *~ holberton
+oclean:
+	$(RM) $(OBJ)
+fclean: clean oclean
+
+re: oclean all
