@@ -4,26 +4,24 @@
 
 def island_perimeter(grid):
     """ returns the perimeter of the island described in grid
-
     Args:
         grid ([list]): [list of list of integers]
-
     Returns:
         [int]: [perimeter of the island described in grid]
     """
-    column = 0
-    row = 0
-    counter = 0
 
-    for row in range(len(grid)):
-        for column in range(len(grid[row])):
-            if grid[row][column] == 1:
-                if row == 0 or grid[row - 1][column] == 0:
-                    counter += 1
-                if (row - 1) == -1 or grid[row + 1][column] == 0:
-                    counter += 1
-                if row == 0 or grid[row][column - 1] == 0:
-                    counter += 1
-                if (row - 1) or grid[row][column + 1] == 0:
-                    counter += 1
-    return (counter)
+
+rows, columns, perimeter = len(grid), len(grid[0]), 0
+for row in range(rows):
+    for spot in range(columns):
+        if grid[row][spot] == 0:
+            continue
+        if row == 0 or grid[row - 1][spot] == 0:
+            perimeter += 1
+        if row == rows - 1 or grid[row + 1][spot] == 0:
+            perimeter += 1
+        if spot == 0 or grid[row][spot - 1] == 0:
+            perimeter += 1
+        if spot == columns - 1 or grid[row][spot + 1] == 0:
+            perimeter += 1
+return perimeter
