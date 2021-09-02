@@ -1,6 +1,7 @@
 #include "search_algos.h"
 /**
-* binary_search - adds a new node at the end of a listint_t list.
+* binary_search - searches for a value in a sorted array of integers
+* using the Binary search algorithm
 * @array:  pointer to the first element of the array to search in
 * @size: number of elements in array
 * @value: value to search for
@@ -10,9 +11,9 @@
 int binary_search(int *array, size_t size, int value)
 {
 
-size_t first = 0;
-size_t last = size - 1;
-size_t middle = (first + last) / 2;
+	size_t first = 0;
+	size_t last = size - 1;
+	size_t middle = (first + last) / 2;
 
 	if (array)
 	{
@@ -40,8 +41,6 @@ size_t middle = (first + last) / 2;
 				last = middle - 1;
 			}
 			middle = (first + last) / 2;
-
-
 		}
 	}
 	return (-1);
