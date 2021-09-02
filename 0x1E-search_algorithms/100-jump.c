@@ -26,7 +26,10 @@ int jump_search(int *array, size_t size, int value)
 		(reference - jum_step), reference);
 
 		jum_step = reference - jum_step;
-
+		if (reference >= size)
+		{
+			reference -= 1;
+		}
 		while (jum_step <= reference)
 		{
 			printf("Value checked array[%lu] = [%d]\n", jum_step, array[jum_step]);
