@@ -1,7 +1,7 @@
 ![Holberton](holberton.png)
 
-# Holbertonschool-low_level_programming
-
+# C -> Pointers, Memory allocation and release, Data structures, 
+# Bit manipulation, search algorithms.
 
 #	Directory	Content
 
