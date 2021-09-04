@@ -1,7 +1,7 @@
 ![Holberton](holberton.png)
 
-# C -> Pointers, Memory allocation and release, Data structures, 
-# Bit manipulation, search algorithms.
+# C 
+Pointers, Memory allocation and release, Data structures, Bit manipulation, search algorithms.
 
 #	Directory	Content
 
